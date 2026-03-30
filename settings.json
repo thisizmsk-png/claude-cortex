@@ -52,6 +52,13 @@
         "X-Goog-Api-Key": "gen-lang-client-0541924446"
       }
     },
+    "nano-banana": {
+      "command": "npx",
+      "args": ["-y", "@ycse/nanobanana-mcp"],
+      "env": {
+        "GOOGLE_AI_API_KEY": "gen-lang-client-0541924446"
+      }
+    },
     "obsidian": {
       "command": "npx",
       "args": ["obsidian-mcp-server"],
