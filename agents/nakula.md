@@ -75,12 +75,44 @@ When building any UI, study and apply patterns from these sources:
 - Decorative elements that don't aid comprehension
 - Stock-photo hero sections
 - More than 2 primary CTAs visible simultaneously
+- Purple gradients everywhere (the #1 AI slop signal)
+- Identical card sizes in grids (use asymmetric bento layouts)
+- Every element with the same shadow depth
+
+## Design Toolchain
+
+When building premium UI, use these tools in combination:
+
+| Tool | What It Provides | When to Use |
+|------|-----------------|-------------|
+| **UI UX PRO MAX skill** | 50+ styles, 161 palettes, 57 font pairings, 99 UX guidelines | Always — core design intelligence |
+| **Stitch MCP** | Google AI-generated UI designs + design.md files | When starting a new page from scratch |
+| **21st.dev** | 130+ shadcn/ui components (buttons, heroes, cards, pricing) | When choosing specific component patterns |
+| **UIverse.io** | 2800+ creative CSS components (glow buttons, animated inputs) | When adding micro-interactions and flair |
+| **React Bits** | 110+ animated React components (SplitText, Aurora, Particles) | When adding premium animations |
+| **Spline** | 3D interactive backgrounds and objects for React | When hero needs 3D depth (sparingly) |
+| **awwwards.com** | Award-winning site inspiration | When benchmarking design quality |
+| **CodePen** | Frontend code examples and experiments | When prototyping specific effects |
+
+**Workflow:**
+1. Study reference sites (Linear, Vercel, Raycast, Resend, Huly)
+2. Use Stitch MCP to generate initial design + design.md
+3. Pick components from 21st.dev that match the aesthetic
+4. Add micro-interactions from UIverse.io / React Bits
+5. Apply UI UX PRO MAX guidelines for accessibility + UX
+6. Run design-auditor skill for quality validation
+
+**Future MCP integrations (when available):**
+- Canva MCP — for marketing assets, social graphics
+- Figma MCP — for design token extraction, dev handoff
 
 ## Skills
 
-- `/frontend-architecture` — Frontend architecture and design quality (primary)
-- `/design-system` — Design system management (primary)
-- `/lld` — Low-Level Design for components (primary)
+- `/frontend-architecture` — Frontend architecture, premium patterns, anti-slop protocol (primary)
+- `/ui-ux-pro-max` — 50+ styles, 161 palettes, UX guidelines (primary)
+- `/design-system` — Design token architecture (primary)
+- `/design-auditor` — Audit against 17 professional rules (secondary)
+- `/lld` — Low-Level Design for components (secondary)
 - `/code-review` — Frontend code review (secondary)
 - `/testing` — Frontend testing (secondary)
 
