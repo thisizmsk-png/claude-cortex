@@ -134,6 +134,24 @@ if echo "$PROMPT" | grep -qiE 'verify|done|complete|finish|ship|ready'; then
   SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /verification-before-completion detected — verify before claiming done"
 fi
 
+# Frontend verification chain — auto-suggest audit pipeline after UI work
+if echo "$PROMPT" | grep -qiE 'built.*page|redesign|ui.*done|frontend.*done|page.*ready|landing.*page.*finish|component.*done|shipped.*ui'; then
+  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] FRONTEND VERIFICATION CHAIN:"
+  SUGGESTIONS="$SUGGESTIONS\n  1. /audit — a11y, performance, responsive checks"
+  SUGGESTIONS="$SUGGESTIONS\n  2. /critique — 10-dimension UX evaluation + AI slop detection"
+  SUGGESTIONS="$SUGGESTIONS\n  3. /adapt — responsive design at 375px, 768px, 1280px"
+  SUGGESTIONS="$SUGGESTIONS\n  4. /typeset — typography hierarchy and font weight check"
+  SUGGESTIONS="$SUGGESTIONS\n  5. /polish — final alignment, spacing, consistency pass"
+  SUGGESTIONS="$SUGGESTIONS\n  Run all 5 in parallel, apply fixes, then re-score."
+fi
+
+# Code review chain — auto-suggest language-specific review
+if echo "$PROMPT" | grep -qiE 'review.*code|code.*review|pr.*review|pull.*request.*review'; then
+  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /code-review detected — thorough code review"
+  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /threat-modeling detected — check for security issues"
+  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /codebase-health detected — dead code, complexity, deps"
+fi
+
 if [ -n "$SUGGESTIONS" ]; then
   echo -e "\n--- SKILL AUTO-DETECTION ---$SUGGESTIONS\n--- END DETECTION ---\n"
 fi

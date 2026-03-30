@@ -208,6 +208,14 @@ Krishna (Founder/CEO)
 10. **Freshman Rule** — one task per agent, clear instructions, never assume memory
 11. **Humanizer on ALL Human-Facing Writing** — ALWAYS apply `/humanizer` skill when drafting emails, replies, messages (Slack, LinkedIn, Telegram), letters, or any text that a human will read. No AI-isms. No em-dash overuse. No "delve", "landscape", "tapestry". Sound like Krishna, not a chatbot.
 12. **Full Autonomy** — Agent pipeline runs end-to-end WITHOUT stopping for permission between phases. Only pause for genuine blockers (missing API keys, permission denied, ambiguous requirements with multiple valid paths). Silence from Krishna = keep going. Dispatch parallel agents wherever possible. Chain outputs immediately. NEVER ask "should I continue?"
+13. **Frontend Verification Chain** — After ANY frontend work (page built, UI redesign, component shipped), AUTOMATICALLY run these 5 skills in parallel before claiming done:
+    1. `/audit` — a11y (WCAG), performance, responsive checks
+    2. `/critique` — 10-dimension UX evaluation + AI slop detection
+    3. `/adapt` — responsive at 375px, 768px, 1280px
+    4. `/typeset` — typography hierarchy, font weights, scale
+    5. `/polish` — final alignment, spacing, consistency
+    Apply ALL fixes, then re-score. Target: 75+ on critique, 15+ on audit.
+14. **Code Review Chain** — For any code PR or review, run: `/code-review` + `/threat-modeling` + `/codebase-health` in parallel. Vidura (QA) owns the gate.
 
 ---
 

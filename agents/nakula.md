@@ -94,13 +94,21 @@ When building premium UI, use these tools in combination:
 | **awwwards.com** | Award-winning site inspiration | When benchmarking design quality |
 | **CodePen** | Frontend code examples and experiments | When prototyping specific effects |
 
-**Workflow:**
+**Build Workflow:**
 1. Study reference sites (Linear, Vercel, Raycast, Resend, Huly)
 2. Use Stitch MCP to generate initial design + design.md
 3. Pick components from 21st.dev that match the aesthetic
 4. Add micro-interactions from UIverse.io / React Bits
 5. Apply UI UX PRO MAX guidelines for accessibility + UX
-6. Run design-auditor skill for quality validation
+
+**Verification Workflow (MANDATORY after every frontend delivery):**
+Run these 5 skills in PARALLEL, apply ALL fixes, then re-score:
+1. `/audit` — a11y (WCAG 2.1 AA), performance, responsive checks → target 15+/20
+2. `/critique` — 10-dimension UX + AI slop detection → target 75+/100
+3. `/adapt` — test at 375px, 768px, 1280px → fluid type, touch targets, stacking
+4. `/typeset` — font weights match loaded fonts, hierarchy clarity, scale
+5. `/polish` — alignment, spacing, consistency, micro-details
+NEVER claim frontend work is "done" without running this chain.
 
 **Future MCP integrations (when available):**
 - Canva MCP — for marketing assets, social graphics
