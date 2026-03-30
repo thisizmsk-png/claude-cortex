@@ -1,0 +1,47 @@
+{
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    }
+  },
+  "permissions": {
+    "deny": [
+      "Bash(cat ~/.ssh/*)",
+      "Bash(cat ~/.aws/*)",
+      "Bash(cat ~/.kube/*)",
+      "Bash(cat ~/.gnupg/*)"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/hooks/skill-detect.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers": {
+    "obsidian": {
+      "command": "npx",
+      "args": ["obsidian-mcp-server"],
+      "env": {
+        "OBSIDIAN_API_KEY": "SET_YOUR_API_KEY_HERE",
+        "OBSIDIAN_BASE_URL": "http://127.0.0.1:27123"
+      },
+      "disabled": true
+    }
+  }
+}

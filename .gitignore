@@ -1,0 +1,21 @@
+# Secrets & credentials
+settings.local.json
+mcp-needs-auth-cache.json
+policy-limits.json
+
+# Session data (ephemeral)
+sessions/
+session-env/
+shell-snapshots/
+cache/
+debug/
+backups/
+statsig/
+telemetry/
+todos/
+plans/
+plugins/
+worktrees/
+
+# Project-specific memory (stays local)
+projects/
