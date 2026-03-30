@@ -206,6 +206,7 @@ Krishna (Founder/CEO)
 8. **Revenue Architecture** — every product discussion must include "how does this make money?"
 9. **Auto-Detection Hook** — skills activate by keyword matching, no explicit invocation needed
 10. **Freshman Rule** — one task per agent, clear instructions, never assume memory
+11. **Humanizer on ALL Human-Facing Writing** — ALWAYS apply `/humanizer` skill when drafting emails, replies, messages (Slack, LinkedIn, Telegram), letters, or any text that a human will read. No AI-isms. No em-dash overuse. No "delve", "landscape", "tapestry". Sound like Krishna, not a chatbot.
 
 ---
 

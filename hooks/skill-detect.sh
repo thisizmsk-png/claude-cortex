@@ -77,8 +77,8 @@ if echo "$PROMPT" | grep -qiE 'slide|presentation|pitch deck|keynote'; then
 fi
 
 # Content & Writing
-if echo "$PROMPT" | grep -qiE 'humanize|ai.*writing|sound.*natural|rewrite.*human'; then
-  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /humanizer detected — remove AI writing patterns"
+if echo "$PROMPT" | grep -qiE 'humanize|ai.*writing|sound.*natural|rewrite.*human|reply.*email|write.*email|respond.*to|draft.*message|write.*message|reply.*to.*human|compose.*email|write.*letter|draft.*reply|email.*response|slack.*message|linkedin.*message'; then
+  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /humanizer detected — remove AI writing patterns, sound natural"
 fi
 if echo "$PROMPT" | grep -qiE 'brand|voice|tone|identity|style guide'; then
   SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /brand detected — apply brand voice/identity"
