@@ -31,6 +31,17 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/hooks/post-write-review.sh"
+          }
+        ]
+      }
     ]
   },
   "mcpServers": {
