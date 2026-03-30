@@ -17,5 +17,8 @@ plans/
 plugins/
 worktrees/
 
+# Scheduled tasks (user-specific, not generalizable)
+scheduled-tasks/
+
 # Project-specific memory (stays local)
 projects/
