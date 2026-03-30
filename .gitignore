@@ -20,5 +20,10 @@ worktrees/
 # Scheduled tasks (user-specific, not generalizable)
 scheduled-tasks/
 
+# Personal files (use templates, fill in your own)
+USER.md
+MEMORY.md
+memory/
+
 # Project-specific memory (stays local)
 projects/

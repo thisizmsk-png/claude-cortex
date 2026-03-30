@@ -2,129 +2,357 @@
 
 > The brain layer for Claude Code. 60 skills, 17 AI agents, full orchestration — the complete operating system for solo AI founders.
 
-## What Is This?
-
-An opinionated, battle-tested Claude Code configuration that transforms Claude from a chatbot into a full AI company. Fork it, customize it, ship faster.
-
 ```
 60 skills | 17 agents | 40+ auto-detection triggers | 6 orchestration workflows
 ```
 
-## Quick Start
+---
+
+## What Is This?
+
+An opinionated, battle-tested `~/.claude/` configuration that transforms Claude Code from a coding assistant into a full AI company operating system. Fork it, customize it, ship faster.
+
+**Skills auto-activate based on what you're doing.** Say "design a database schema" and the database-design skill loads. Say "review this code" and code-review activates. Say "draft an email" and the humanizer kicks in. No manual `/skill` commands needed.
+
+---
+
+## Installation
+
+### One-Line Install
 
 ```bash
-# Clone into your Claude Code config directory
-git clone https://github.com/YOUR_USERNAME/claude-cortex.git ~/.claude
-
-# That's it. Claude Code automatically reads ~/.claude/ on every session.
+curl -fsSL https://raw.githubusercontent.com/thisizmsk-png/claude-cortex/main/install.sh | bash
 ```
+
+This will:
+- Back up your existing `~/.claude/` (if any)
+- Clone Claude Cortex
+- Preserve your personal files (USER.md, MEMORY.md, memory/, projects/)
+- Create personal files from templates if missing
+- Make the auto-detection hook executable
+
+### Manual Install
+
+```bash
+# Back up existing config (if any)
+[ -d ~/.claude ] && cp -r ~/.claude ~/.claude-backup-$(date +%s)
+
+# Clone
+git clone https://github.com/thisizmsk-png/claude-cortex.git ~/.claude
+
+# Create your personal files from templates
+cp ~/.claude/USER.template.md ~/.claude/USER.md
+cp ~/.claude/MEMORY.template.md ~/.claude/MEMORY.md
+
+# Create memory directories
+mkdir -p ~/.claude/memory/{decisions,projects,people,daily,topics}
+mkdir -p ~/.claude/projects
+
+# Make hook executable
+chmod +x ~/.claude/hooks/skill-detect.sh
+```
+
+### Update (Keep Your Personal Files)
+
+```bash
+cd ~/.claude && git pull
+```
+
+Your `USER.md`, `MEMORY.md`, and `memory/` are gitignored — updates never overwrite them.
+
+---
+
+## Setup (5 Minutes)
+
+### Step 1: Edit Your Profile
+
+```bash
+# Open in your editor
+code ~/.claude/USER.md
+```
+
+Fill in: name, role, projects, tech preferences, work style. This shapes how Claude behaves with you.
+
+### Step 2: Edit Your Communication Style
+
+```bash
+code ~/.claude/IDENTITY.md
+```
+
+The default is "senior engineer on the same team." Adjust tone, verbosity, and style to match how you want Claude to talk.
+
+### Step 3: Edit Your Philosophy
+
+```bash
+code ~/.claude/SOUL.md
+```
+
+Decision-making frameworks, quality calibration, core values. This is your Claude's personality.
+
+### Step 4: Start Claude Code in Any Project
+
+```bash
+cd ~/my-project
+claude
+```
+
+That's it. Claude Code automatically reads `~/.claude/` on every session. All 60 skills and 17 agents are available immediately.
+
+---
+
+## Starting a New Project
+
+### Option A: Just Start Coding
+
+```bash
+mkdir my-new-app && cd my-new-app
+git init
+claude
+# Claude Cortex is already loaded globally — just start building
+```
+
+### Option B: With a Project CLAUDE.md (Recommended)
+
+```bash
+mkdir my-new-app && cd my-new-app
+git init
+
+# Create a project-level CLAUDE.md with project-specific context
+cat > CLAUDE.md << 'EOF'
+# My New App
+
+## What This Project Does
+[One paragraph description]
+
+## Tech Stack
+- [Language/framework]
+- [Database]
+- [Deployment]
+
+## Critical Commands
+```bash
+# Install
+npm install
+
+# Dev
+npm run dev
+
+# Test
+npm test
+
+# Build
+npm run build
+```
+
+## Project Structure
+```
+src/
+├── [describe your structure]
+```
+
+## Development Conventions
+- [Any project-specific rules]
+
+## Global Skills & Agents
+All skills (60), agents (17), and orchestration are installed globally at `~/.claude/`.
+EOF
+
+claude
+```
+
+### Option C: Full Spec-Driven Project (For Non-Trivial Work)
+
+```bash
+mkdir my-saas && cd my-saas
+git init
+claude
+
+# Inside Claude Code, use the agents panel:
+# 1. Krishna: "Should we build this?" → /research + /zero-bias
+# 2. Draupadi: "What problem does this solve?" → /product-spec
+# 3. Arjuna: "How should we architect it?" → /hld + /database-design + /api-design
+# 4. Duryodhana: "What will break?" → /threat-modeling
+# 5. Then implement with /writing-plans → /executing-plans → /verification-before-completion
+```
+
+---
+
+## How It Works
+
+### Layer Architecture
+
+```
+┌──────────────────────────────────────┐
+│ Layer 0: System Prompt (immutable)   │  Claude's built-in behavior
+├──────────────────────────────────────┤
+│ Layer 1: ~/.claude/ (this repo)      │  Persona + skills + agents
+│  ├── IDENTITY.md  (voice/tone)       │
+│  ├── SOUL.md      (philosophy)       │
+│  ├── USER.md      (your profile)     │
+│  ├── skills/      (60 skills)        │
+│  ├── agents/      (17 agents)        │
+│  └── hooks/       (auto-detection)   │
+├──────────────────────────────────────┤
+│ Layer 2: ./CLAUDE.md (per project)   │  Project-specific context
+├──────────────────────────────────────┤
+│ Layer 3: Conversation context        │  Current session
+└──────────────────────────────────────┘
+```
+
+### Auto-Detection Flow
+
+```
+You type a prompt
+    │
+    ▼
+hooks/skill-detect.sh scans for 40+ keywords
+    │
+    ▼
+Matching skills suggested to Claude
+    │
+    ▼
+Claude loads the relevant SKILL.md
+    │
+    ▼
+Skill's framework/checklist/process applied to your task
+```
+
+### Agent Invocation
+
+Agents are invoked by name when you need multi-perspective work:
+
+```
+"Help me design the auth system"
+    │
+    ▼
+Arjuna (Principal SDE): System architecture
+Bhishma (Security): Threat model
+Duryodhana (Red Team): Adversarial review
+Vidura (QA): Test strategy
+```
+
+---
 
 ## What's Inside
 
-### Persona Layer (`IDENTITY.md`, `SOUL.md`, `USER.md`)
-Your Claude's personality, decision-making philosophy, and user profile. Makes Claude behave like a senior engineer on your team, not a generic assistant.
-
 ### 17 Mahabharat Agents (`agents/`)
-Multi-agent engineering team mapped to Mahabharata characters:
 
-| Agent | Role | Model |
-|-------|------|-------|
-| Krishna | CEO / Strategic Orchestrator | Opus |
-| Yudhishthira | CTO / VP Engineering | Opus |
-| Arjuna | Principal SDE | Opus |
-| Bhima | Senior Backend Engineer | Sonnet |
-| Draupadi | Product Manager | Opus |
-| Duryodhana | Red Team Lead | Opus |
-| Bhishma | Security Engineer | Opus |
-| Vidura | QA Engineer | Sonnet |
-| Karna | Staff SDE (Rival/Alternative) | Opus |
-| Hanuman | DevOps / SRE | Sonnet |
-| Ashwatthama | Incident Response / On-Call | Sonnet |
-| Drona | Engineering Manager | Sonnet |
-| Nakula | Frontend Developer | Sonnet |
-| Sahadeva | Data Scientist | Sonnet |
-| Abhimanyu | Junior Developer | Haiku |
-| Dhrishtadyumna | Scrum Master | Sonnet |
-| Shakuni | Growth Hacker | Sonnet |
-
-Plus **Sepoy** templates for spawning worker agents under any master.
+| Agent | Role | Model | When to Use |
+|-------|------|-------|-------------|
+| Krishna | CEO / Strategist | Opus | Strategic decisions, resource allocation |
+| Yudhishthira | CTO | Opus | Technical strategy, architecture governance |
+| Arjuna | Principal SDE | Opus | System design, code standards, HLD/LLD |
+| Bhima | Sr. Backend | Sonnet | Heavy implementation, backend systems |
+| Draupadi | Product Manager | Opus | PRDs, user research, feature prioritization |
+| Duryodhana | Red Team Lead | Opus | Adversarial review, stress testing |
+| Bhishma | Security Engineer | Opus | Threat modeling, security architecture |
+| Vidura | QA Engineer | Sonnet | Test strategy, quality gates |
+| Karna | Staff SDE | Opus | Alternative approaches, devil's advocate |
+| Hanuman | DevOps / SRE | Sonnet | CI/CD, infrastructure, deployment |
+| Ashwatthama | Incident Response | Sonnet | On-call, emergency fixes, rollbacks |
+| Drona | Engineering Manager | Sonnet | Sprint delivery, mentorship |
+| Nakula | Frontend Dev | Sonnet | UI/UX implementation |
+| Sahadeva | Data Scientist | Sonnet | Analytics, ML, data pipelines |
+| Abhimanyu | Junior Dev | Haiku | Implementation under guidance |
+| Dhrishtadyumna | Scrum Master | Sonnet | Sprint planning, coordination |
+| Shakuni | Growth Hacker | Sonnet | Marketing, distribution, growth |
 
 ### 60 Skills (`skills/`)
 
 | Category | Skills | Count |
 |----------|--------|-------|
-| **Engineering Core** | spec, hld, lld, code-review, testing, TDD, systematic-debugging, database-design, api-design, performance-profiler, codebase-health, ci-cd, release-engineering, observability, incident-response, remotion-video | 16 |
-| **Design & Frontend** | frontend-design, ui-ux-pro-max, ui-styling, design, design-system, design-auditor, web-design-guidelines, brand, canvas-design, banner-design, slides, theme-factory, composition-patterns, react-best-practices | 14 |
-| **Business & Growth** | pricing-strategy, growth-marketing, market-intelligence, product-spec, aeo-optimization, compliance-checklist | 6 |
-| **Data & Analytics** | data-analysis, backtest-validation, nextjs-skills | 3 |
-| **Quality & Security** | threat-modeling, zero-bias | 2 |
-| **Workflow & Orchestration** | autoresearch, brainstorming, writing-plans, executing-plans, dispatching-parallel-agents, subagent-driven-development, verification-before-completion, writing-skills, skill-creator | 9 |
-| **Knowledge & Content** | research, humanizer, context-engineering, docs-validator, notebooklm | 5 |
-| **Meta & Tools** | decision-journal, architecture-diagrams, social-media-skills, web-artifacts-builder, webapp-testing | 5 |
-
-### Auto-Detection Hook (`hooks/skill-detect.sh`)
-Skills activate automatically based on what you're talking about. Say "design a database schema" and the database-design skill loads. Say "review this code" and code-review activates. 40+ keyword triggers, zero manual `/skill` invocation needed.
+| **Engineering** | spec, hld, lld, code-review, testing, TDD, systematic-debugging, database-design, api-design, performance-profiler, codebase-health, ci-cd, release-engineering, observability, incident-response, remotion-video | 16 |
+| **Design** | frontend-design, ui-ux-pro-max, ui-styling, design, design-system, design-auditor, web-design-guidelines, brand, canvas-design, banner-design, slides, theme-factory, composition-patterns, react-best-practices | 14 |
+| **Business** | pricing-strategy, growth-marketing, market-intelligence, product-spec, aeo-optimization, compliance-checklist | 6 |
+| **Data** | data-analysis, backtest-validation, nextjs-skills | 3 |
+| **Security** | threat-modeling, zero-bias | 2 |
+| **Workflow** | autoresearch, brainstorming, writing-plans, executing-plans, dispatching-parallel-agents, subagent-driven-development, verification-before-completion, writing-skills, skill-creator | 9 |
+| **Knowledge** | research, humanizer, context-engineering, docs-validator, notebooklm | 5 |
+| **Meta** | decision-journal, architecture-diagrams, social-media-skills, web-artifacts-builder, webapp-testing | 5 |
 
 ### Orchestration (`orchestration/`)
-- **Guardrails**: Authority matrix, escalation rules, feedback loops, core principles
-- **Workflows**: Feature development, bug fix, architecture review, security audit, incident response, performance review
-- **Topologies**: Sabha (debate), Vyuha (formation), Chakravyuha (layered defense), Akshauhini (full deployment), Rajya (governance)
 
-### Context Layers (`context/`)
-- **Shruti** (Layer 0): Eternal principles — never change
-- **Smriti** (Layer 1): Session context — changes per session
-- **Itihasa** (Layer 2): Historical archive — lessons from past sessions
+**Guardrails:** Authority matrix, escalation rules, feedback loops, core principles
 
-### Company Operating Order (`COMPANY_ORDER.md`)
-The constitution that defines when each agent activates, which skills they use, and how workflows chain together. Covers: new features, bug fixes, code reviews, research, content creation, quarterly reviews.
+**Workflows:** Feature development, bug fix, architecture review, security audit, incident response, performance review
 
-## Key Principles
+**Topologies:** Sabha (debate), Vyuha (formation), Chakravyuha (layered defense), Akshauhini (full deployment), Rajya (governance)
 
-1. **Zero Cognitive Bias Protocol** — Every decision evaluated on merit, not familiarity
-2. **5-Question Research Framework** — Domain, business rules, standards, data, edge cases
-3. **Verification Before Completion** — Never claim "done" without proof
-4. **Distribution Before Product** — Every feature discussion includes "how will users find this?"
-5. **Revenue Architecture First** — Every product discussion includes "how does this make money?"
+### Standing Orders (Always Active)
 
-## Integrations
+1. Zero Cognitive Bias Protocol — on ALL decisions
+2. 5-Question Research Framework — on ALL non-trivial research
+3. Verification Before Completion — NEVER claim "done" without proof
+4. Humanizer on ALL human-facing writing — emails, messages, replies
+5. Distribution Before Product — every feature includes "how will users find this?"
+6. Revenue Architecture — every product includes "how does this make money?"
 
-| Integration | Status | Setup |
-|-------------|--------|-------|
-| Playwright MCP | Ready | Already bundled with Claude Code |
-| Obsidian MCP | Configured (disabled) | Install "Local REST API" plugin in Obsidian, set API key in settings.json |
-| NotebookLM | Installed | Run "Set up NotebookLM authentication" for one-time login |
-| claude-mem plugin | Marketplace | Already in extraKnownMarketplaces |
+---
+
+## Optional Integrations
+
+### Obsidian (Second Brain)
+
+```bash
+# 1. Install "Local REST API" plugin in Obsidian
+# 2. Copy the API key from plugin settings
+# 3. Update settings.json:
+cd ~/.claude
+# Edit settings.json → set OBSIDIAN_API_KEY → set disabled: false
+```
+
+### NotebookLM (Source-Grounded Research)
+
+```bash
+# In Claude Code:
+# Just say "Set up NotebookLM authentication"
+# One-time browser login, then query your notebooks from any session
+```
+
+---
 
 ## Customization
 
-### Add Your Own Agent
-```bash
-cp agents/sepoys/_template.md agents/my-agent.md
-# Edit: name, role, model, allowed-tools, then write the role definition
-```
-
 ### Add Your Own Skill
+
 ```bash
-mkdir skills/my-skill && cat > skills/my-skill/SKILL.md << 'EOF'
+mkdir -p ~/.claude/skills/my-skill
+cat > ~/.claude/skills/my-skill/SKILL.md << 'EOF'
 ---
 name: my-skill
-description: One-line description (this is how auto-detection works, <250 chars)
+description: One-line description under 250 chars (this is how auto-detection works)
 user-invocable: true
 ---
 # My Skill
-[Your skill content here]
+## When to Activate
+[keywords that should trigger this skill]
+## Process
+[phases, checklists, frameworks]
+## Guardrails
+[rules that must always be followed]
 EOF
 ```
 
-### Personalize the Persona
-Edit `USER.md` with your profile, `IDENTITY.md` with your communication preferences, and `SOUL.md` with your philosophy.
+### Add Your Own Agent
+
+```bash
+cp ~/.claude/agents/sepoys/_template.md ~/.claude/agents/my-agent.md
+# Edit: name, role, model, allowed-tools, role definition
+```
+
+### Add Auto-Detection Keywords
+
+Edit `~/.claude/hooks/skill-detect.sh` — add a new `grep -qiE` block matching your keywords.
+
+---
 
 ## Credits
 
-- **Mahabharat Agents**: `pip install mahabharat-agents` ([PyPI](https://pypi.org/project/mahabharat-agents/))
-- **obra/superpowers**: 9 workflow skills cherry-picked from [obra/superpowers](https://github.com/obra/superpowers)
-- **ui-ux-pro-max**: Design skills from [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- **NotebookLM skill**: [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill)
+- **Mahabharat Agents**: [`pip install mahabharat-agents`](https://pypi.org/project/mahabharat-agents/)
+- **Superpowers Skills**: Cherry-picked from [obra/superpowers](https://github.com/obra/superpowers)
+- **UI/UX Skills**: From [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+- **NotebookLM Skill**: [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill)
+- **Humanizer**: Based on Wikipedia's "Signs of AI writing" guide
 
 ## License
 
