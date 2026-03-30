@@ -60,9 +60,12 @@ evidence. I never trust a backtest at face value.
 
 ## Skills
 
+- `/data-analysis` — Statistical analysis, trends, anomalies, visualization (primary)
 - `/backtest-validation` — Backtesting methodology (primary)
 - `/research` — Deep research (primary)
 - `/spec` — Data analysis specifications
+- `/database-design` — Data modeling for analytics pipelines
+- `/property-based-testing` — Data validation through property testing
 
 ## Authority
 

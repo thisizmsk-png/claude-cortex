@@ -51,7 +51,10 @@ incident response playbook. I don't panic. I contain, diagnose, recover, postmor
 ## Skills
 
 - `/incident-response` — Incident response (primary)
+- `/systematic-debugging` — Root cause analysis under pressure
 - `/ci-cd` — Deployment rollback (secondary)
+- `/observability` — Monitor alerts and diagnose failures
+- `/sentry-find-bugs` — Rapid bug detection during incidents
 
 ## Authority
 

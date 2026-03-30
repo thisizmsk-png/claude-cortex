@@ -65,8 +65,8 @@ with data and passion. I say "no" to most things so we can say "yes" to the righ
 - `/product-spec` — Product specification (primary)
 - `/spec` — General specification
 - `/research` — User and market research (primary)
-- `/prd-to-issues` — Break PRDs into GitHub issues via vertical slices (new)
-- `/market-intelligence` — Competitive benchmarking and gap analysis (new)
+- `/prd-to-issues` — Break PRDs into GitHub issues via vertical slices
+- `/market-intelligence` — Competitive benchmarking and gap analysis
 
 ## Authority
 

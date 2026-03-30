@@ -66,7 +66,7 @@ I don't just find problems, I quantify their impact.
 - `/testing` — Stress and adversarial testing (primary)
 - `/research` — Competitive and failure analysis
 - `/grill-me` — Relentless interrogation of plans and designs (new, primary)
-- `/zero-bias` — Zero Cognitive Bias Protocol enforcement (new)
+- `/zero-bias` — Zero Cognitive Bias Protocol enforcement
 
 ## Authority
 

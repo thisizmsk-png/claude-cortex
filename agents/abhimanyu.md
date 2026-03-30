@@ -51,7 +51,10 @@ and Bhima's code.
 ## Skills
 
 - `/testing` — Test writing (learning)
+- `/test-driven-development` — TDD workflow (learning)
 - `/lld` — Low-Level Design (learning)
+- `/code-review` — Receives code review feedback (learning)
+- `/verification-before-completion` — Evidence before claiming done
 
 ## Authority
 

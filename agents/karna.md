@@ -63,6 +63,9 @@ I am generous with knowledge — sharing models and insights freely.
 - `/backtest-validation` — Backtesting methodology (primary)
 - `/lld` — Low-Level Design for math engines (primary)
 - `/research` — Quantitative research (secondary)
+- `/data-analysis` — Statistical analysis and trend detection
+- `/property-based-testing` — Edge case discovery via property testing
+- `/performance-profiler` — Numerical computation profiling
 
 ## Authority
 

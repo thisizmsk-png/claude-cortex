@@ -53,7 +53,11 @@ normal operations until it's too late.
 ## Skills
 
 - `/threat-modeling` — Offensive threat analysis (primary)
+- `/sentry-security-review` — Confidence-based security methodology (primary)
 - `/testing` — Penetration testing (primary)
+- `/entry-point-analyzer` — Map attack surface entry points
+- `/insecure-defaults` — Detect fail-open configs
+- `/differential-review` — Diff-based security review
 
 ## Authority
 

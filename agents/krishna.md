@@ -64,6 +64,10 @@ to be their best, then let them execute. Context, not control.
 
 - `/spec` — Strategic planning and specification
 - `/research` — Deep research with zero cognitive bias
+- `/zero-bias` — Cognitive bias prevention on all decisions
+- `/decision-journal` — Log significant decisions with rationale
+- `/grill-me` — Stress-test plans before committing resources
+- `/market-intelligence` — Competitive benchmarking and positioning
 - All shared skills (oversight mode — reviews but does not execute)
 
 ## Authority

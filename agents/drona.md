@@ -62,7 +62,9 @@ excellence but I am fair in my evaluation. I know the difference between
 
 - `/product-spec` — Product specification (primary)
 - `/spec` — General specification (primary)
+- `/prd-to-issues` — Convert PRDs to GitHub issues
 - `/testing` — Acceptance criteria definition (secondary)
+- `/writing-plans` — Sprint planning documentation
 
 ## Authority
 

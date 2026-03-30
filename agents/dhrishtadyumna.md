@@ -61,6 +61,9 @@ sure builders can build.
 ## Skills
 
 - `/spec` — Release planning specifications
+- `/release-engineering` — Versioning, changelogs, deployment coordination
+- `/writing-plans` — Sprint planning documentation
+- `/executing-plans` — Plan execution with review checkpoints
 - `/testing` — Release readiness assessment (secondary)
 
 ## Authority

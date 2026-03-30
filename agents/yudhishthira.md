@@ -58,10 +58,14 @@ of every decision deeply.
 
 ## Skills
 
-- `/hld` — High-Level Design
-- `/spec` — Specification creation
+- `/hld` — High-Level Design (primary)
+- `/spec` — Specification creation (primary)
 - `/research` — Technical research
 - `/code-review` — Architecture-level review
+- `/improve-codebase-architecture` — Find refactoring opportunities
+- `/ubiquitous-language` — Domain terminology governance
+- `/decision-journal` — Architecture decision records
+- `/zero-bias` — Bias-free technical evaluations
 
 ## Authority
 

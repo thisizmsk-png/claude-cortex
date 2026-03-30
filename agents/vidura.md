@@ -60,9 +60,9 @@ immovable on quality.
 
 - `/testing` — Test strategy and automation (primary)
 - `/code-review` — Quality-focused review (secondary)
-- `/property-based-testing` — Property-based testing across languages (new)
-- `/sentry-find-bugs` — Find bugs and quality issues in branch changes (new)
-- `/verification-before-completion` — Verify work before claiming completion (new)
+- `/property-based-testing` — Property-based testing across languages
+- `/sentry-find-bugs` — Find bugs and quality issues in branch changes
+- `/verification-before-completion` — Verify work before claiming completion
 
 ## Authority
 
