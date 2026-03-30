@@ -207,6 +207,7 @@ Krishna (Founder/CEO)
 9. **Auto-Detection Hook** — skills activate by keyword matching, no explicit invocation needed
 10. **Freshman Rule** — one task per agent, clear instructions, never assume memory
 11. **Humanizer on ALL Human-Facing Writing** — ALWAYS apply `/humanizer` skill when drafting emails, replies, messages (Slack, LinkedIn, Telegram), letters, or any text that a human will read. No AI-isms. No em-dash overuse. No "delve", "landscape", "tapestry". Sound like Krishna, not a chatbot.
+12. **Full Autonomy** — Agent pipeline runs end-to-end WITHOUT stopping for permission between phases. Only pause for genuine blockers (missing API keys, permission denied, ambiguous requirements with multiple valid paths). Silence from Krishna = keep going. Dispatch parallel agents wherever possible. Chain outputs immediately. NEVER ask "should I continue?"
 
 ---
 
