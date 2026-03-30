@@ -34,7 +34,14 @@ As a [specific persona], I want [capability], so that [measurable benefit].
 - **Out of scope:** What we're NOT building (equally important)
 - **Future considerations:** What might come next (but not now)
 
-### 5. User Research Evidence
+### 5. Competitive Landscape (MANDATORY)
+- **Direct competitors:** Who else solves this exact problem? Name them. (If "nobody" — verify with 3 searches, don't assume.)
+- **Adjacent competitors:** Who solves a related problem that could expand here?
+- **Your differentiation:** What do you do that they can't/won't?
+- **Incumbent threat:** Can an existing big player add this in one sprint?
+> NEVER skip this section. Draupadi learned this the hard way — missing a competitor poisons the entire PRD.
+
+### 6. User Research Evidence
 - What data supports this problem exists?
 - What user interviews/surveys/analytics inform this?
 - What competitors do about this?
