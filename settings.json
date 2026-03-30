@@ -34,6 +34,13 @@
     ]
   },
   "mcpServers": {
+    "stitch": {
+      "type": "http",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "gen-lang-client-0541924446"
+      }
+    },
     "obsidian": {
       "command": "npx",
       "args": ["obsidian-mcp-server"],

@@ -66,7 +66,8 @@ if echo "$PROMPT" | grep -qiE 'backtest|walk.?forward|overfitting|out.?of.?sampl
 fi
 
 # Frontend & UI
-if echo "$PROMPT" | grep -qiE 'ui|ux|frontend|landing page|dashboard|web.*design|react.*component'; then
+if echo "$PROMPT" | grep -qiE 'ui|ux|frontend|landing page|dashboard|web.*design|react.*component|page.*design|build.*page|create.*page'; then
+  SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /frontend-architecture detected — Apple/Linear/Vercel-grade design patterns"
   SUGGESTIONS="$SUGGESTIONS\n[AUTO-SKILL] /frontend-design detected — apply frontend design patterns"
 fi
 if echo "$PROMPT" | grep -qiE 'banner|social media.*image|ad.*creative|poster'; then

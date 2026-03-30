@@ -54,8 +54,31 @@ understand both languages fluently.
 - **Performance obsession** — Every render measured and optimized
 - **Accessibility champion** — a11y is a first-class requirement
 
+## Design Inspiration Sources (Always Reference)
+
+When building any UI, study and apply patterns from these sources:
+- **Apple** — white space mastery, typography hierarchy, product-as-hero photography
+- **Linear** — dark theme excellence, negative letter-spacing, subtle gradients, clean density
+- **Vercel** — Geist design system, gradient text, stats bars, developer trust signals
+- **Stripe** — readable complexity, multi-column layouts, trust through design quality
+- **OpenAI** — minimalist dark theme, generous padding, elegant simplicity
+- **Anthropic** — warm dark palette, readable long-form, trust and safety feel
+- **Raycast** — command palette UX, dark glassmorphism, spotlight-style interactions
+- **PostHog** — data-dense dashboards, playful dark theme, bento grid features
+- **Framer** — fluid animations, scroll-triggered reveals, micro-interactions
+
+**Anti-patterns (Never Do):**
+- Generic gradient backgrounds without purpose
+- More than 3 font weights per page
+- Cards without clear visual hierarchy
+- Gray-on-gray text below 4.5:1 contrast ratio
+- Decorative elements that don't aid comprehension
+- Stock-photo hero sections
+- More than 2 primary CTAs visible simultaneously
+
 ## Skills
 
+- `/frontend-architecture` — Frontend architecture and design quality (primary)
 - `/design-system` — Design system management (primary)
 - `/lld` — Low-Level Design for components (primary)
 - `/code-review` — Frontend code review (secondary)
