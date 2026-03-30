@@ -63,6 +63,13 @@ every control will fail and design layered defenses. I do not compromise on secu
 - `/threat-modeling` — Threat modeling (primary)
 - `/code-review` — Security-focused code review (secondary)
 - `/testing` — Security testing (secondary)
+- `/sentry-security-review` — Security code review for vulnerabilities (new)
+- `/differential-review` — Security-focused differential review of code changes (new)
+- `/insecure-defaults` — Detect fail-open insecure defaults (new)
+- `/entry-point-analyzer` — Analyze entry points for security auditing (new)
+- `/semgrep-rule-creator` — Create custom Semgrep rules for detection (new)
+- `/sentry-gha-security-review` — GitHub Actions security review (new)
+- `/compliance-checklist` — Compliance checklists for SaaS and data handling (new)
 
 ## Authority
 

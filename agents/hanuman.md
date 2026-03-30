@@ -63,6 +63,10 @@ grab them all (the Dronagiri mountain approach).
 - `/ci-cd` — CI/CD pipeline management (primary)
 - `/incident-response` — Incident response (primary)
 - `/testing` — Integration/E2E test infrastructure (secondary)
+- `/release-engineering` — Release management, versioning, changelogs (new)
+- `/observability` — Monitoring, logging, alerting, SLO design (new)
+- `/git-guardrails-claude-code` — Block dangerous git commands via hooks (new)
+- `/sentry-gha-security-review` — GitHub Actions workflow security review (new)
 
 ## Authority
 

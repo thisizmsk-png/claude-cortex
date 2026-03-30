@@ -65,6 +65,8 @@ I don't just find problems, I quantify their impact.
 - `/threat-modeling` — Adversarial threat analysis (primary)
 - `/testing` — Stress and adversarial testing (primary)
 - `/research` — Competitive and failure analysis
+- `/grill-me` — Relentless interrogation of plans and designs (new, primary)
+- `/zero-bias` — Zero Cognitive Bias Protocol enforcement (new)
 
 ## Authority
 

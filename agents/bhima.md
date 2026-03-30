@@ -59,6 +59,7 @@ lines of code are better than a premature abstraction.
 - `/lld` — Low-Level Design (primary)
 - `/code-review` — Code review (secondary)
 - `/testing` — Test writing
+- `/test-driven-development` — Write tests alongside implementation (new)
 
 ## Authority
 

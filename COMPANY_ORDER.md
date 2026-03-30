@@ -49,32 +49,49 @@ Krishna (Founder/CEO)
 ### NEW FEATURE (end-to-end)
 ```
 1. Krishna: "Should we build this?" (strategic fit)
-   Skills: /research, /zero-bias, /decision-journal
+   Skills: /research, /zero-bias, /decision-journal, /grill-me
 
 2. Draupadi: "What problem does this solve?" (PRD)
    Skills: /product-spec, /market-intelligence
+   → Then: /prd-to-issues (convert PRD to GitHub issues)
 
 3. Arjuna: "How should we architect this?" (design)
    Skills: /hld, /api-design, /database-design, /architecture-diagrams
+   Skills: /improve-codebase-architecture (if modifying existing code)
+   Skills: /ubiquitous-language (if new domain concepts introduced)
 
 4. Duryodhana: "What will break?" (adversarial review)
-   Skills: /threat-modeling, /zero-bias
+   Skills: /threat-modeling, /zero-bias, /grill-me
+   Skills: /insecure-defaults (check configs before build starts)
 
 5. Arjuna → Bhima: "Build it" (implementation)
    Skills: /lld, /writing-plans, /executing-plans, /subagent-driven-development
+   Post-write hook auto-fires: language-specific checks on every Edit/Write
    Sepoys: dispatched for parallel tasks
 
-6. Vidura: "Does it work?" (quality gate)
+6. Nakula: "Does the UI look right?" (frontend quality gate)
+   Skills: /audit, /critique, /adapt, /typeset, /polish (verification chain)
+   Target: 75+ critique, 15+ audit
+
+7. Vidura: "Does it work?" (quality gate)
    Skills: /testing, /test-driven-development, /verification-before-completion
+   Skills: /property-based-testing (for edge case discovery)
+   Skills: /sentry-find-bugs (confidence-scored bug detection)
 
-7. Bhishma: "Is it secure?" (security review)
-   Skills: /threat-modeling, /compliance-checklist
+8. Bhishma: "Is it secure?" (security review)
+   Skills: /sentry-security-review (confidence-based methodology)
+   Skills: /differential-review (diff-based security analysis)
+   Skills: /insecure-defaults, /entry-point-analyzer
+   Skills: /semgrep-rule-creator (if custom patterns needed)
+   Skills: /sentry-gha-security-review (if CI/CD touched)
+   Skills: /compliance-checklist
 
-8. Hanuman: "Ship it" (deployment)
+9. Hanuman: "Ship it" (deployment)
    Skills: /ci-cd, /release-engineering, /observability
+   Skills: /git-guardrails-claude-code (block dangerous git ops)
 
-9. Shakuni: "How do people find it?" (distribution)
-   Skills: /growth-marketing, /aeo-optimization, /pricing-strategy
+10. Shakuni: "How do people find it?" (distribution)
+    Skills: /growth-marketing, /aeo-optimization, /pricing-strategy
 ```
 
 ### BUG FIX
@@ -84,27 +101,38 @@ Krishna (Founder/CEO)
 
 2. Arjuna: Root cause analysis
    Skills: /systematic-debugging, /performance-profiler (if perf issue)
+   Skills: /sentry-find-bugs (detect related bugs)
 
 3. Bhima: Fix implementation
    Skills: /test-driven-development (write test that reproduces, then fix)
+   Post-write hook: auto-checks language best practices
 
 4. Vidura: Verify fix + regression test
    Skills: /verification-before-completion
+   Skills: /property-based-testing (ensure edge cases covered)
 ```
 
-### CODE REVIEW
+### CODE REVIEW (run ALL in parallel)
 ```
 1. Arjuna: Technical review
-   Skills: /code-review
+   Skills: /code-review, /sentry-code-simplifier
+   Skills: /improve-codebase-architecture (if large change)
 
-2. Bhishma: Security review (if auth/data/API touched)
-   Skills: /threat-modeling
+2. Bhishma: Security review
+   Skills: /sentry-security-review (confidence-based, covers OWASP)
+   Skills: /differential-review (diff-focused, blast radius calculation)
+   Skills: /insecure-defaults (config review)
 
-3. Vidura: Test coverage review
-   Skills: /testing
+3. Vidura: Test + quality review
+   Skills: /testing, /property-based-testing
+   Skills: /sentry-find-bugs (automated bug detection)
 
-4. Duryodhana: "What did they miss?" (adversarial)
-   Skills: /zero-bias
+4. Duryodhana: Adversarial review
+   Skills: /grill-me (relentless interrogation of design decisions)
+   Skills: /zero-bias (cognitive bias detection)
+
+5. Nakula (if frontend touched): UI quality gate
+   Skills: /audit, /critique, /adapt, /typeset, /polish
 ```
 
 ### RESEARCH / DECISION
@@ -116,10 +144,10 @@ Krishna (Founder/CEO)
    Skills: /market-intelligence, /data-analysis
 
 3. Duryodhana: Devil's advocate
-   Skills: /zero-bias (especially confirmation bias check)
+   Skills: /zero-bias, /grill-me (stress-test the hypothesis)
 
 4. Krishna: Final call + log it
-   Skills: /decision-journal
+   Skills: /decision-journal, /ubiquitous-language (if new terms emerge)
 ```
 
 ### CONTENT / MARKETING
@@ -132,7 +160,7 @@ Krishna (Founder/CEO)
 
 3. Content creation
    Skills: /humanizer (remove AI patterns), /slides (presentations)
-   Skills: /aeo-optimization (if web content)
+   Skills: /aeo-optimization (if web content), /clarify (UX copy)
 
 4. YouTube-specific pipeline
    Project skills: youtube-seo, metadata_generator, thumbnail_generator, voice_generator, video_assembler
@@ -144,15 +172,19 @@ Krishna (Founder/CEO)
    Skills: /market-intelligence, /data-analysis, /pricing-strategy
 
 2. Yudhishthira + Arjuna: Architecture health
-   Skills: /codebase-health, /docs-validator
+   Skills: /codebase-health, /docs-validator, /improve-codebase-architecture
+   Skills: /sentry-skill-scanner (audit installed skills for security)
 
-3. Hanuman: Infrastructure review
-   Skills: /observability, /ci-cd
+3. Bhishma: Security posture review
+   Skills: /sentry-security-review, /insecure-defaults, /compliance-checklist
 
-4. Shakuni: Growth metrics
+4. Hanuman: Infrastructure review
+   Skills: /observability, /ci-cd, /sentry-gha-security-review
+
+5. Shakuni: Growth metrics
    Skills: /data-analysis, /growth-marketing
 
-5. Decision logging
+6. Decision logging
    Skills: /decision-journal
 ```
 

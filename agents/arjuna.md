@@ -65,6 +65,9 @@ the exact target.
 - `/code-review` — Code review (primary)
 - `/spec` — Technical specifications
 - `/research` — Technical research
+- `/improve-codebase-architecture` — Find architectural improvement opportunities (new)
+- `/sentry-code-simplifier` — Simplify and refine code for clarity (new)
+- `/ubiquitous-language` — Extract DDD-style ubiquitous language glossary (new)
 
 ## Authority
 
